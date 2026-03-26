@@ -1,7 +1,13 @@
+"""
+Simple CLI script to launch predefined games or applications.
+Maps a short command-line argument to an absolute executable path.
+"""
+
 import sys
 import os
 import pprint
 
+# Dictionary mapping simple application aliases to their absolute executable paths
 lista = {
 	"fs13":"D:/Programas/Farming Simulator 2013/FarmingSimulator2013.exe",
 	"teste":"D:/Programas/SpeedAutoClicker.exe",
@@ -19,10 +25,17 @@ lista = {
     }
 
 def rungame(name):
+	"""
+	Executes the application associated with the given alias.
+
+	Args:
+		name (str): The short alias key corresponding to an application in `lista`.
+	"""
 	os.system(lista[name])
 
 try:
 	rungame(sys.argv[1])
 except IndexError:
+	# Fallback error handling: If no argument is provided, display available aliases.
 	print("Lista de comandos disponíveis")
-	pprint.pprint(lista)	
+	pprint.pprint(lista)
