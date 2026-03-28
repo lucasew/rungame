@@ -1,0 +1,20 @@
+[tools]
+python = "3.12.0"
+
+[tasks."install:*"]
+run = "echo 'install'"
+
+[tasks."test:*"]
+run = "python3 -m unittest discover tests"
+
+[tasks."codegen:*"]
+run = "echo 'codegen'"
+
+[tasks.ci]
+depends = ["lint", "test"]
+
+[tasks.lint]
+run = "echo 'lint'"
+
+[tasks.test]
+depends = ["test:*"]
