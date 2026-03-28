@@ -1,0 +1,1 @@
+- 2026-03-28: [Unquoted Path / OS Command Injection - look for os.system() and unquoted string paths, replace with subprocess.run() and lists]
